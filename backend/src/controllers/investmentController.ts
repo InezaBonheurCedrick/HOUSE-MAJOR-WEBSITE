@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Put, Delete, Route, Body, Path, Tags, Security } from "tsoa";
-import { PrismaClient } from "../generated/prisma";
+import { PrismaClient } from "@prisma/client";
 import { sendContactEmail } from "../utils/mailer";
 
 const prisma = new PrismaClient();

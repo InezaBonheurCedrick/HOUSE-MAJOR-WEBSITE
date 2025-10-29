@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Put, Delete, Body, Path, Route, Tags, Security } from "tsoa";
-import { PrismaClient } from "../generated/prisma";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 

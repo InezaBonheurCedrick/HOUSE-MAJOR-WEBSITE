@@ -1,7 +1,7 @@
 import { 
   Controller, Post, Body, Route, Tags, Security, Get, Delete, Path, Request 
 } from "tsoa";
-import { PrismaClient } from "../generated/prisma";
+import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";

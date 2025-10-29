@@ -10,7 +10,7 @@ import {
   Tags,
   Security,
 } from "tsoa";
-import { PrismaClient } from "../generated/prisma";
+import { PrismaClient } from "@prisma/client";
 import cloudinary from "../utils/cloudinary";
 
 const prisma = new PrismaClient();

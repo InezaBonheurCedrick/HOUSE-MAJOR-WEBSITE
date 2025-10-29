@@ -9,7 +9,7 @@ import { ValidateError } from "tsoa";
 import { authenticate } from "./middleware/auth";
 import { uploadApplication } from "./controllers/uploadApplicationController";
 import { uploadTeamImage, updateTeamMember, deleteTeamMember } from "./controllers/uploadTeamImageController";
-import { PrismaClient } from "./generated/prisma";
+import { PrismaClient } from "@prisma/client";
 import { uploadProject, updateProjectWithImages } from "./controllers/uploadProjectController";
 
 

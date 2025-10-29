@@ -1,4 +1,4 @@
-import { Prisma } from "../generated/prisma";
+import { Prisma, PrismaClient } from "@prisma/client";
 import { ProjectCreateDto } from "../dtos/projectDtos";
 
 
