@@ -10,7 +10,7 @@
     "start": "node dist/src/index.js",
     "seed": "ts-node prisma/seed.ts",
     "postinstall": "npx prisma generate",
-    "render-build": "npm run build"
+    "render-build": "npm run build && cp -R src/generated dist/src"
   },
   "keywords": [],
   "author": "",
