@@ -1,0 +1,3525 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"ProjectResultDto": {
+				"properties": {
+					"metric": {
+						"type": "string"
+					},
+					"label": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"metric",
+					"label"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ProjectLinksDto": {
+				"properties": {
+					"live": {
+						"type": "string"
+					},
+					"github": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ProjectDownloadsDto": {
+				"properties": {
+					"ios": {
+						"type": "string"
+					},
+					"android": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ProjectClientDto": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"logo": {
+						"type": "string"
+					},
+					"industry": {
+						"type": "string"
+					},
+					"location": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"logo",
+					"industry",
+					"location"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ProjectResponseDto": {
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"category": {
+						"type": "string"
+					},
+					"date": {
+						"type": "string"
+					},
+					"fullDescription": {
+						"type": "string"
+					},
+					"images": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"features": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"results": {
+						"items": {
+							"$ref": "#/components/schemas/ProjectResultDto"
+						},
+						"type": "array"
+					},
+					"tags": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"team": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"duration": {
+						"type": "string"
+					},
+					"externalLinks": {
+						"$ref": "#/components/schemas/ProjectLinksDto"
+					},
+					"downloadLinks": {
+						"$ref": "#/components/schemas/ProjectDownloadsDto"
+					},
+					"client": {
+						"$ref": "#/components/schemas/ProjectClientDto"
+					},
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"title",
+					"description",
+					"category",
+					"date",
+					"images",
+					"features",
+					"results",
+					"tags",
+					"team",
+					"externalLinks",
+					"downloadLinks",
+					"client",
+					"id",
+					"createdAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ProjectCreateDto": {
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"category": {
+						"type": "string"
+					},
+					"date": {
+						"type": "string"
+					},
+					"fullDescription": {
+						"type": "string"
+					},
+					"images": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"features": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"results": {
+						"items": {
+							"$ref": "#/components/schemas/ProjectResultDto"
+						},
+						"type": "array"
+					},
+					"tags": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"team": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"duration": {
+						"type": "string"
+					},
+					"externalLinks": {
+						"$ref": "#/components/schemas/ProjectLinksDto"
+					},
+					"downloadLinks": {
+						"$ref": "#/components/schemas/ProjectDownloadsDto"
+					},
+					"client": {
+						"$ref": "#/components/schemas/ProjectClientDto"
+					}
+				},
+				"required": [
+					"title",
+					"description",
+					"category",
+					"date",
+					"images",
+					"features",
+					"results",
+					"tags",
+					"team",
+					"externalLinks",
+					"downloadLinks",
+					"client"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Partial_ProjectCreateDto_": {
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"category": {
+						"type": "string"
+					},
+					"date": {
+						"type": "string"
+					},
+					"fullDescription": {
+						"type": "string"
+					},
+					"images": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"features": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"results": {
+						"items": {
+							"$ref": "#/components/schemas/ProjectResultDto"
+						},
+						"type": "array"
+					},
+					"tags": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"team": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"duration": {
+						"type": "string"
+					},
+					"externalLinks": {
+						"$ref": "#/components/schemas/ProjectLinksDto"
+					},
+					"downloadLinks": {
+						"$ref": "#/components/schemas/ProjectDownloadsDto"
+					},
+					"client": {
+						"$ref": "#/components/schemas/ProjectClientDto"
+					}
+				},
+				"type": "object",
+				"description": "Make all properties in T optional"
+			},
+			"CareerResponseDto": {
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"department": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"location": {
+						"type": "string"
+					},
+					"salary": {
+						"type": "string",
+						"nullable": true
+					},
+					"experience": {
+						"type": "string",
+						"nullable": true
+					},
+					"posted": {
+						"type": "string",
+						"nullable": true
+					},
+					"description": {
+						"type": "string"
+					},
+					"requirements": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"responsibilities": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"title",
+					"department",
+					"type",
+					"location",
+					"description",
+					"requirements",
+					"responsibilities",
+					"id",
+					"createdAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CareerCreateDto": {
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"department": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"location": {
+						"type": "string"
+					},
+					"salary": {
+						"type": "string",
+						"nullable": true
+					},
+					"experience": {
+						"type": "string",
+						"nullable": true
+					},
+					"posted": {
+						"type": "string",
+						"nullable": true
+					},
+					"description": {
+						"type": "string"
+					},
+					"requirements": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"responsibilities": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"title",
+					"department",
+					"type",
+					"location",
+					"description",
+					"requirements",
+					"responsibilities"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Partial_CareerCreateDto_": {
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"department": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"location": {
+						"type": "string"
+					},
+					"salary": {
+						"type": "string"
+					},
+					"experience": {
+						"type": "string"
+					},
+					"posted": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"requirements": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"responsibilities": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"type": "object",
+				"description": "Make all properties in T optional"
+			},
+			"ApplicationResponseDto": {
+				"properties": {
+					"fullName": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"phone": {
+						"type": "string",
+						"nullable": true
+					},
+					"resumeUrl": {
+						"type": "string",
+						"nullable": true
+					},
+					"coverLetter": {
+						"type": "string",
+						"nullable": true
+					},
+					"jobTitle": {
+						"type": "string",
+						"nullable": true
+					},
+					"careerId": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"fullName",
+					"email",
+					"id",
+					"createdAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ApplicationCreateDto": {
+				"properties": {
+					"fullName": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"phone": {
+						"type": "string",
+						"nullable": true
+					},
+					"resumeUrl": {
+						"type": "string",
+						"nullable": true
+					},
+					"coverLetter": {
+						"type": "string",
+						"nullable": true
+					},
+					"jobTitle": {
+						"type": "string",
+						"nullable": true
+					},
+					"careerId": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					}
+				},
+				"required": [
+					"fullName",
+					"email"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {
+			"jwt": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
+			}
+		}
+	},
+	"info": {
+		"title": "backend",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"paths": {
+		"/team": {
+			"get": {
+				"operationId": "GetAll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"items": {
+												"properties": {
+													"linkedin": {
+														"type": "string"
+													},
+													"github": {
+														"type": "string"
+													},
+													"email": {
+														"type": "string"
+													},
+													"createdAt": {
+														"type": "string",
+														"format": "date-time"
+													},
+													"image": {
+														"type": "string"
+													},
+													"bio": {
+														"type": "string"
+													},
+													"role": {
+														"type": "string"
+													},
+													"name": {
+														"type": "string"
+													},
+													"id": {
+														"type": "number",
+														"format": "double"
+													}
+												},
+												"required": [
+													"linkedin",
+													"github",
+													"email",
+													"createdAt",
+													"image",
+													"bio",
+													"role",
+													"name",
+													"id"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										},
+										{
+											"properties": {
+												"error": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"error",
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Team"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "Create",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"error": {},
+												"member": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"error": {},
+												"member": {
+													"properties": {
+														"linkedin": {
+															"type": "string"
+														},
+														"github": {
+															"type": "string"
+														},
+														"email": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"image": {
+															"type": "string"
+														},
+														"bio": {
+															"type": "string"
+														},
+														"role": {
+															"type": "string"
+														},
+														"name": {
+															"type": "string"
+														},
+														"id": {
+															"type": "number",
+															"format": "double"
+														}
+													},
+													"required": [
+														"linkedin",
+														"github",
+														"email",
+														"createdAt",
+														"image",
+														"bio",
+														"role",
+														"name",
+														"id"
+													],
+													"type": "object"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"member",
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"member": {},
+												"error": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"error",
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Team"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"github": {
+										"type": "string"
+									},
+									"linkedin": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"image": {
+										"type": "string"
+									},
+									"bio": {
+										"type": "string"
+									},
+									"role": {
+										"type": "string"
+									},
+									"name": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"role",
+									"name"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/team/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"linkedin": {
+													"type": "string"
+												},
+												"github": {
+													"type": "string"
+												},
+												"email": {
+													"type": "string"
+												},
+												"createdAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"image": {
+													"type": "string"
+												},
+												"bio": {
+													"type": "string"
+												},
+												"role": {
+													"type": "string"
+												},
+												"name": {
+													"type": "string"
+												},
+												"id": {
+													"type": "number",
+													"format": "double"
+												}
+											},
+											"required": [
+												"linkedin",
+												"github",
+												"email",
+												"createdAt",
+												"image",
+												"bio",
+												"role",
+												"name",
+												"id"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"error": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"error": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"error",
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Team"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "Update",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"error": {},
+												"member": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"error": {},
+												"member": {
+													"properties": {
+														"linkedin": {
+															"type": "string"
+														},
+														"github": {
+															"type": "string"
+														},
+														"email": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"image": {
+															"type": "string"
+														},
+														"bio": {
+															"type": "string"
+														},
+														"role": {
+															"type": "string"
+														},
+														"name": {
+															"type": "string"
+														},
+														"id": {
+															"type": "number",
+															"format": "double"
+														}
+													},
+													"required": [
+														"linkedin",
+														"github",
+														"email",
+														"createdAt",
+														"image",
+														"bio",
+														"role",
+														"name",
+														"id"
+													],
+													"type": "object"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"member",
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"member": {},
+												"error": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"error",
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Team"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"github": {
+										"type": "string"
+									},
+									"linkedin": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"image": {
+										"type": "string"
+									},
+									"bio": {
+										"type": "string"
+									},
+									"role": {
+										"type": "string"
+									},
+									"name": {
+										"type": "string"
+									}
+								},
+								"type": "object"
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "Delete",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"error": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"error": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"error",
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Team"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/services/frontend/all": {
+			"get": {
+				"operationId": "GetAllServicesForFrontend",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"properties": {
+											"icon": {
+												"type": "string"
+											},
+											"description": {
+												"type": "string"
+											},
+											"title": {
+												"type": "string"
+											},
+											"id": {
+												"type": "number",
+												"format": "double"
+											}
+										},
+										"required": [
+											"icon",
+											"description",
+											"title",
+											"id"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Services"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/services": {
+			"get": {
+				"operationId": "GetAllServices",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"properties": {
+											"icon": {
+												"type": "string"
+											},
+											"description": {
+												"type": "string"
+											},
+											"title": {
+												"type": "string"
+											},
+											"createdAt": {
+												"type": "string",
+												"format": "date-time"
+											},
+											"image": {
+												"type": "string"
+											},
+											"id": {
+												"type": "number",
+												"format": "double"
+											}
+										},
+										"required": [
+											"icon",
+											"description",
+											"title",
+											"createdAt",
+											"image",
+											"id"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Services"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "CreateService",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"service": {
+											"properties": {
+												"icon": {
+													"type": "string"
+												},
+												"description": {
+													"type": "string"
+												},
+												"title": {
+													"type": "string"
+												},
+												"createdAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"image": {
+													"type": "string"
+												},
+												"id": {
+													"type": "number",
+													"format": "double"
+												}
+											},
+											"required": [
+												"icon",
+												"description",
+												"title",
+												"createdAt",
+												"image",
+												"id"
+											],
+											"type": "object"
+										},
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"service",
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Services"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"image": {
+										"type": "string"
+									},
+									"icon": {
+										"type": "string"
+									},
+									"description": {
+										"type": "string"
+									},
+									"title": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"icon",
+									"description",
+									"title"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/services/{id}": {
+			"get": {
+				"operationId": "GetServiceById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"icon": {
+													"type": "string"
+												},
+												"description": {
+													"type": "string"
+												},
+												"title": {
+													"type": "string"
+												},
+												"createdAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"image": {
+													"type": "string"
+												},
+												"id": {
+													"type": "number",
+													"format": "double"
+												}
+											},
+											"required": [
+												"icon",
+												"description",
+												"title",
+												"createdAt",
+												"image",
+												"id"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Services"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "UpdateService",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"service": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"service": {
+													"properties": {
+														"icon": {
+															"type": "string"
+														},
+														"description": {
+															"type": "string"
+														},
+														"title": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"image": {
+															"type": "string"
+														},
+														"id": {
+															"type": "number",
+															"format": "double"
+														}
+													},
+													"required": [
+														"icon",
+														"description",
+														"title",
+														"createdAt",
+														"image",
+														"id"
+													],
+													"type": "object"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"service",
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Services"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"image": {
+										"type": "string"
+									},
+									"icon": {
+										"type": "string"
+									},
+									"description": {
+										"type": "string"
+									},
+									"title": {
+										"type": "string"
+									}
+								},
+								"type": "object"
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "DeleteService",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Services"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/projects": {
+			"get": {
+				"operationId": "GetAllProjects",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/ProjectResponseDto"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Projects"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "CreateProject",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"project": {
+											"$ref": "#/components/schemas/ProjectResponseDto"
+										},
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"project",
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Projects"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ProjectCreateDto"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/projects/{id}": {
+			"get": {
+				"operationId": "GetProjectById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"$ref": "#/components/schemas/ProjectResponseDto"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Projects"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "UpdateProject",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"project": {
+											"$ref": "#/components/schemas/ProjectResponseDto"
+										},
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Projects"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Partial_ProjectCreateDto_"
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "DeleteProject",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Projects"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/investments": {
+			"get": {
+				"operationId": "GetAll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"properties": {
+											"description": {
+												"type": "string"
+											},
+											"title": {
+												"type": "string"
+											},
+											"email": {
+												"type": "string"
+											},
+											"createdAt": {
+												"type": "string",
+												"format": "date-time"
+											},
+											"id": {
+												"type": "number",
+												"format": "double"
+											}
+										},
+										"required": [
+											"description",
+											"title",
+											"email",
+											"createdAt",
+											"id"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Investments"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "Create",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"description": {
+											"type": "string"
+										},
+										"title": {
+											"type": "string"
+										},
+										"email": {
+											"type": "string"
+										},
+										"createdAt": {
+											"type": "string",
+											"format": "date-time"
+										},
+										"id": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"description",
+										"title",
+										"email",
+										"createdAt",
+										"id"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Investments"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"image": {
+										"type": "string"
+									},
+									"description": {
+										"type": "string"
+									},
+									"title": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"description",
+									"title"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/investments/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"description": {
+											"type": "string"
+										},
+										"title": {
+											"type": "string"
+										},
+										"email": {
+											"type": "string"
+										},
+										"createdAt": {
+											"type": "string",
+											"format": "date-time"
+										},
+										"id": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"description",
+										"title",
+										"email",
+										"createdAt",
+										"id"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Investments"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "Update",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"description": {
+											"type": "string"
+										},
+										"title": {
+											"type": "string"
+										},
+										"email": {
+											"type": "string"
+										},
+										"createdAt": {
+											"type": "string",
+											"format": "date-time"
+										},
+										"id": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"description",
+										"title",
+										"email",
+										"createdAt",
+										"id"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Investments"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"image": {
+										"type": "string"
+									},
+									"description": {
+										"type": "string"
+									},
+									"title": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"description",
+									"title"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "Delete",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Investments"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/investments/inquiry": {
+			"post": {
+				"operationId": "CreateInquiry",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"investment": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"investment": {
+													"properties": {
+														"description": {
+															"type": "string"
+														},
+														"title": {
+															"type": "string"
+														},
+														"email": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"id": {
+															"type": "number",
+															"format": "double"
+														}
+													},
+													"required": [
+														"description",
+														"title",
+														"email",
+														"createdAt",
+														"id"
+													],
+													"type": "object"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"investment",
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Investments"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"message": {
+										"type": "string"
+									},
+									"investmentNature": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"investmentNature",
+									"email"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/contacts": {
+			"post": {
+				"operationId": "Create",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"contact": {},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"contact": {
+													"properties": {
+														"message": {
+															"type": "string"
+														},
+														"email": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"name": {
+															"type": "string"
+														},
+														"id": {
+															"type": "number",
+															"format": "double"
+														}
+													},
+													"required": [
+														"message",
+														"email",
+														"createdAt",
+														"name",
+														"id"
+													],
+													"type": "object"
+												},
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"contact",
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Contacts"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"message": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"name": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"message",
+									"email",
+									"name"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"operationId": "GetAll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"properties": {
+											"message": {
+												"type": "string"
+											},
+											"email": {
+												"type": "string"
+											},
+											"createdAt": {
+												"type": "string",
+												"format": "date-time"
+											},
+											"name": {
+												"type": "string"
+											},
+											"id": {
+												"type": "number",
+												"format": "double"
+											}
+										},
+										"required": [
+											"message",
+											"email",
+											"createdAt",
+											"name",
+											"id"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Contacts"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/contacts/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												},
+												"email": {
+													"type": "string"
+												},
+												"createdAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"name": {
+													"type": "string"
+												},
+												"id": {
+													"type": "number",
+													"format": "double"
+												}
+											},
+											"required": [
+												"message",
+												"email",
+												"createdAt",
+												"name",
+												"id"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Contacts"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"delete": {
+				"operationId": "Delete",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Contacts"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/careers": {
+			"get": {
+				"operationId": "GetAllCareers",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CareerResponseDto"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Careers"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "CreateCareer",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"career": {
+											"$ref": "#/components/schemas/CareerResponseDto"
+										},
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"career",
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Careers"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CareerCreateDto"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/careers/{id}": {
+			"get": {
+				"operationId": "GetCareerById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"$ref": "#/components/schemas/CareerResponseDto"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Careers"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "UpdateCareer",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"career": {
+											"$ref": "#/components/schemas/CareerResponseDto"
+										},
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Careers"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Partial_CareerCreateDto_"
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "DeleteCareer",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Careers"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/applications": {
+			"post": {
+				"operationId": "SubmitApplication",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"application": {
+											"$ref": "#/components/schemas/ApplicationResponseDto"
+										},
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"application",
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Applications"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ApplicationCreateDto"
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"operationId": "GetAllApplications",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/ApplicationResponseDto"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Applications"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/applications/{id}": {
+			"delete": {
+				"operationId": "DeleteApplication",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Applications"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/applications/{id}/accept": {
+			"put": {
+				"operationId": "AcceptApplication",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Applications"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/applications/{id}/reject": {
+			"put": {
+				"operationId": "RejectApplication",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Applications"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/auth/register": {
+			"post": {
+				"operationId": "Register",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"data": {},
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message",
+												"status"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"data": {
+													"properties": {
+														"userId": {
+															"type": "number",
+															"format": "double"
+														}
+													},
+													"required": [
+														"userId"
+													],
+													"type": "object"
+												},
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"data",
+												"message",
+												"status"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "REGISTER USER",
+				"tags": [
+					"Authentication"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"password": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"username": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"password",
+									"email",
+									"username"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/login": {
+			"post": {
+				"operationId": "Login",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"data": {},
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message",
+												"status"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"data": {
+													"properties": {
+														"token": {}
+													},
+													"required": [
+														"token"
+													],
+													"type": "object"
+												},
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"data",
+												"message",
+												"status"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "LOGIN",
+				"tags": [
+					"Authentication"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"password": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"password",
+									"email"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/logout": {
+			"post": {
+				"operationId": "Logout",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										},
+										"status": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message",
+										"status"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "LOGOUT",
+				"tags": [
+					"Authentication"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/auth/forgot-password": {
+			"post": {
+				"operationId": "ForgotPassword",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										},
+										"status": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message",
+										"status"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "FORGOT PASSWORD (Send reset token via email)",
+				"tags": [
+					"Authentication"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"email": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"email"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/reset-password": {
+			"post": {
+				"operationId": "ResetPassword",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										},
+										"status": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message",
+										"status"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "RESET PASSWORD",
+				"tags": [
+					"Authentication"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"newPassword": {
+										"type": "string"
+									},
+									"token": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"newPassword",
+									"token",
+									"email"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/profile": {
+			"post": {
+				"operationId": "UpdateProfile",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"data": {},
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message",
+												"status"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"data": {
+													"properties": {
+														"email": {
+															"type": "string"
+														},
+														"username": {
+															"type": "string"
+														}
+													},
+													"required": [
+														"email",
+														"username"
+													],
+													"type": "object"
+												},
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"data",
+												"message",
+												"status"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "UPDATE PROFILE",
+				"tags": [
+					"Authentication"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"newPassword": {
+										"type": "string"
+									},
+									"currentPassword": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"username": {
+										"type": "string"
+									}
+								},
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/admin/users": {
+			"post": {
+				"operationId": "CreateAdminUser",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"data": {},
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message",
+												"status"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"data": {
+													"properties": {
+														"userId": {
+															"type": "number",
+															"format": "double"
+														}
+													},
+													"required": [
+														"userId"
+													],
+													"type": "object"
+												},
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"data",
+												"message",
+												"status"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "CREATE ADMIN USER (internal use)",
+				"tags": [
+					"Authentication"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"password": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"username": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"password",
+									"email",
+									"username"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"operationId": "GetAdminUsers",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"data": {
+											"properties": {
+												"users": {
+													"items": {
+														"properties": {
+															"updatedAt": {
+																"type": "string",
+																"format": "date-time"
+															},
+															"username": {
+																"type": "string"
+															},
+															"email": {
+																"type": "string"
+															},
+															"createdAt": {
+																"type": "string",
+																"format": "date-time"
+															},
+															"id": {
+																"type": "number",
+																"format": "double"
+															}
+														},
+														"required": [
+															"updatedAt",
+															"username",
+															"email",
+															"createdAt",
+															"id"
+														],
+														"type": "object"
+													},
+													"type": "array"
+												}
+											},
+											"required": [
+												"users"
+											],
+											"type": "object"
+										},
+										"status": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"data",
+										"status"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "GET ALL USERS",
+				"tags": [
+					"Authentication"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/auth/admin/users/{userId}": {
+			"delete": {
+				"operationId": "DeleteAdminUser",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										},
+										"status": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message",
+										"status"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "DELETE USER (Prevent self-deletion)",
+				"tags": [
+					"Authentication"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "userId",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

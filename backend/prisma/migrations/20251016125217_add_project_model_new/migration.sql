@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Project" ALTER COLUMN "results" DROP NOT NULL,
+ALTER COLUMN "externalLinks" DROP NOT NULL,
+ALTER COLUMN "downloadLinks" DROP NOT NULL,
+ALTER COLUMN "client" DROP NOT NULL;

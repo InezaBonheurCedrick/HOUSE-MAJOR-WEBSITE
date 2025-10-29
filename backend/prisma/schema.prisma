@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  username      String
+  email         String    @unique
+  password      String
+  resetToken    String?
+  resetTokenExp DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @default(now()) @updatedAt
+}
+
+model Service {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  image       String?
+  createdAt   DateTime @default(now())
+  icon        String
+}
+
+model Team {
+  id        Int      @id @default(autoincrement())
+  name      String
+  role      String
+  bio       String?
+  image     String?
+  createdAt DateTime @default(now())
+  email     String?
+  github    String?
+  linkedin  String?
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model Investment {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  email       String?
+  createdAt   DateTime @default(now())
+}
+
+model Project {
+  id              Int      @id @default(autoincrement())
+  title           String
+  description     String
+  category        String
+  date            String
+  fullDescription String?
+  images          String[]
+  features        String[]
+  results         Json
+  tags            String[]
+  team            String[]
+  duration        String?
+  externalLinks   Json
+  downloadLinks   Json
+  client          Json
+  createdAt       DateTime @default(now())
+}
+
+model Career {
+  id               Int           @id @default(autoincrement())
+  title            String
+  department       String
+  type             String
+  location         String
+  salary           String?
+  experience       String?
+  posted           String?
+  description      String
+  requirements     String[]
+  responsibilities String[]
+  createdAt        DateTime      @default(now())
+  applications     Application[]
+}
+
+model Application {
+  id          Int      @id @default(autoincrement())
+  fullName    String
+  email       String
+  phone       String?
+  resumeUrl   String?
+  coverLetter String?
+  jobTitle    String?
+  careerId    Int?
+  createdAt   DateTime @default(now())
+  status      String   @default("Pending")
+  career      Career?  @relation(fields: [careerId], references: [id])
+}

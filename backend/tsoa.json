@@ -1,0 +1,20 @@
+{
+  "entryFile": "src/server.ts",
+  "controllerPathGlobs": ["./src/controllers/**/*.ts"],
+  "routes": {
+    "routesDir": "src/routes"
+  },
+  "validator": true,
+  "spec": {
+    "outputDirectory": "build",
+    "specVersion": 3,
+    "securityDefinitions": {
+      "jwt": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "noImplicitAdditionalProperties": "throw-on-extras"
+}

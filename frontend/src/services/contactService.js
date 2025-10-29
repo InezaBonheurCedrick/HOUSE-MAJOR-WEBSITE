@@ -1,0 +1,100 @@
+const API_BASE_URL = 'http://localhost:5000';
+
+class ContactService {
+  async submitContact(contactData) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/contacts`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contactData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to submit contact form');
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      throw error;
+    }
+  }
+
+  async getAllContacts(token) {
+    try {
+      console.log(' Contact Service - Token:', token ? `Bearer ${token.substring(0, 20)}...` : 'No token');
+      
+      const response = await fetch(`${API_BASE_URL}/contacts`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      console.log(' Contact Service - Response status:', response.status);
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error(' Contact Service - Backend error:', errorData);
+        throw new Error(errorData.message || `Failed to fetch contacts: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log(' Contact Service - Contacts fetched:', data.length, 'contacts');
+      return data;
+    } catch (error) {
+      console.error(' Contact Service - Error:', error);
+      throw error;
+    }
+  }
+
+  async getContactById(id, token) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/contacts/${id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to fetch contact');
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching contact:', error);
+      throw error;
+    }
+  }
+
+  async deleteContact(id, token) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/contacts/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to delete contact');
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Error deleting contact:', error);
+      throw error;
+    }
+  }
+}
+
+export default new ContactService();

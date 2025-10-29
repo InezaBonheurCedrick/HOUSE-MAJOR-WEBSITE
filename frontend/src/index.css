@@ -1,0 +1,77 @@
+/* index.css */
+
+
+@import "tailwindcss";
+
+/* Brand color token */
+:root {
+  --color-brand: #0e2342;
+  --color-brand-light: #1e3a5f;
+}
+
+.text-brand { color: var(--color-brand); }
+.bg-brand { background-color: var(--color-brand); }
+.border-brand { border-color: var(--color-brand); }
+
+.dark .text-brand { color: var(--color-brand-light); }
+.dark .bg-brand { background-color: var(--color-brand-light); }
+.dark .border-brand { border-color: var(--color-brand-light); }
+
+.btn-brand {
+  background-color: var(--color-brand);
+  color: #ffffff;
+}
+.btn-brand:hover {
+  filter: brightness(0.9);
+}
+
+.dark .btn-brand {
+  background-color: var(--color-brand-light);
+}
+.dark .btn-brand:hover {
+  filter: brightness(1.1);
+}
+
+.hover-brand:hover { color: var(--color-brand); }
+.icon-bg-brand {
+  background-color: var(--color-brand);
+  color: #ffffff;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.animate-slideOut {
+  animation: slideOut 0.5s ease-in-out;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
