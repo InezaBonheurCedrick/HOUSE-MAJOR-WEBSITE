@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://house-major-website.onrender.com';
 
 const serviceService = {
   // Get all services for frontend (public)

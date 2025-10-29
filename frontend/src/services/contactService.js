@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://house-major-website.onrender.com';
 
 class ContactService {
   async submitContact(contactData) {

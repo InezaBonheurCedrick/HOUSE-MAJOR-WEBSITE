@@ -114,7 +114,7 @@ const TeamManagement = ({ isDark }) => {
         uploadData.append("linkedin", formData.linkedin || "");
         uploadData.append("github", formData.github || "");
 
-        const response = await fetch("http://localhost:5000/team/upload", {
+        const response = await fetch("https://house-major-website.onrender.com/team/upload", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -163,7 +163,7 @@ const TeamManagement = ({ isDark }) => {
         uploadData.append("github", formData.github || "");
 
         const response = await fetch(
-          `http://localhost:5000/team/${editingMember.id}`,
+          `https://house-major-website.onrender.com/team/${editingMember.id}`,
           {
             method: "PUT",
             headers: {
