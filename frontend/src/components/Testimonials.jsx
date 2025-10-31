@@ -18,7 +18,7 @@ const TestimonialCard = ({ testimonial, isDark }) => (
       <img
         src={testimonial.avatar}
         alt={testimonial.name}
-        className="w-12 h-12 rounded-full object-cover mr-3 border-2 border-indigo-400 transition-all duration-300 group-hover:border-indigo-500"
+        className="w-12 h-12 rounded-full object-contain mr-3 border-2 border-indigo-400 transition-all duration-300 group-hover:border-indigo-500"
       />
       <div>
         <h4
