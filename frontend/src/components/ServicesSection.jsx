@@ -74,7 +74,7 @@ const ServicesSection = ({ isDark }) => {
           <p className={`mt-4 max-w-2xl mx-auto ${
             isDark ? 'text-gray-400' : 'text-gray-600'
           }`}>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit.
+            We deliver technology solutions that help organizations operate more efficiently, securely, and intelligently.
           </p>
         </div>
 
