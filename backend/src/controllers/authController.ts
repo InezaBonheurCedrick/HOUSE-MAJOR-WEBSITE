@@ -12,8 +12,8 @@ const JWT_SECRET = process.env.JWT_SECRET || "secret123";
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
+    user: "b.cedrick100@gmail.com",
+    pass: "paoe lria ailk kerg",
   },
   tls: {
     rejectUnauthorized: false,
