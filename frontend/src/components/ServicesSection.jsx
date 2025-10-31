@@ -23,6 +23,7 @@ const ServicesSection = ({ isDark }) => {
   const [loading, setLoading] = useState(true);
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
+  const [showAll, setShowAll] = useState(false); // State to manage visibility
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -35,51 +36,7 @@ const ServicesSection = ({ isDark }) => {
         setServices(data);
       } catch (err) {
         setError(err.message);
-        // // Fallback to static data if API fails
-        // setServices([
-        //   {
-        //     id: 1,
-        //     title: 'Software Development',
-        //     description: 'Our services aim to improve smooth operations for organizations and entities using technological innovations.',
-        //     icon: 'PaintBrushIcon',
-        //   },
-        //   {
-        //     id: 2,
-        //     title: 'Data Security',
-        //     description: 'We help protect systems and data for entities, entrusted in handling data management technologies and protective measure against data loss cyber-attacks.',
-        //     icon: 'RectangleGroupIcon',
-        //   },
-        //   {
-        //     id: 3,
-        //     title: 'Tech Consultancy',
-        //     description: 'We facilitate in giving insights in technology and consultancy services in setting up system for business and organizations.',
-        //     icon: 'CodeBracketIcon',
-        //   },
-        //   {
-        //     id: 4,
-        //     title: 'AI Model Development',
-        //     description: 'We build AI model in various disciplines useful in shaping and improving nature of organization and businesses.',
-        //     icon: 'DevicePhoneMobileIcon',
-        //   },
-        //   {
-        //     id: 5,
-        //     title: 'DevOps',
-        //     description: 'Integrating pipelines to access clients across the global, putting you closer to your clients.',
-        //     icon: 'MegaphoneIcon',
-        //   },
-        //   {
-        //     id: 6,
-        //     title: 'Cybersecurity',
-        //     description: 'We build system defensive technologies against various attacks from all across the internet.',
-        //     icon: 'MagnifyingGlassIcon',
-        //   },
-        //   {
-        //     id: 7,
-        //     title: 'Geospatial Analysis',
-        //     description: 'We help entities determine suitable location and business locate where business needs to expands buy geospatial technologies.',
-        //     icon: 'MagnifyingGlassIcon',
-        //   },
-        // ]);
+        // Fallback data (from original file) is commented out
       } finally {
         setLoading(false);
       }
@@ -87,6 +44,9 @@ const ServicesSection = ({ isDark }) => {
 
     fetchServices();
   }, []);
+
+  // Determine which services to display based on 'showAll' state
+  const displayedServices = showAll ? services : services.slice(0, 6);
 
   if (loading) {
     return (
@@ -119,7 +79,7 @@ const ServicesSection = ({ isDark }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => {
+          {displayedServices.map((service) => { // Use displayedServices here
             const IconComponent = iconMap[service.icon];
             const iconElement = IconComponent ? 
               <IconComponent className="w-6 h-6 text-white" /> : 
@@ -136,6 +96,20 @@ const ServicesSection = ({ isDark }) => {
             );
           })}
         </div>
+
+        {/* "Show More" / "Show Less" Button */}
+        {services.length > 6 && (
+          <div className="text-center mt-12">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className={`px-6 py-3 rounded-lg font-semibold text-white bg-brand transition-all duration-300 hover:opacity-90 ${
+                !isDark ? 'shadow-lg' : ''
+              }`}
+            >
+              {showAll ? 'Show Less' : 'Show More'}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
