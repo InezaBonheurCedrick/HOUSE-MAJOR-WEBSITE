@@ -92,7 +92,7 @@ const Testimonials = ({ isDark }) => {
       company: 'IUCN Rwanda',
       companyLogo:
         'https://placehold.co/100x40/1a143c/ffffff?text=IUCN&font=roboto',
-      avatar: 'https://randomuser.me/api/portraits/women/5.jpg',
+      avatar: 'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906690/International-Union-for-Conservation-of-Nature-IUCN-Rwanda-is-hiring-a-Program-Officer_zi05a4.png',
     },
     {
       name: 'Eric Mugabo',
@@ -102,7 +102,7 @@ const Testimonials = ({ isDark }) => {
       company: 'WelTel Rwanda',
       companyLogo:
         'https://placehold.co/100x40/1a143c/ffffff?text=WelTel&font=roboto',
-      avatar: 'https://randomuser.me/api/portraits/men/6.jpg',
+      avatar: 'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906690/logo_2024182096_vytnsg.png',
     },
     {
       name: 'Sandrine Uwase',
@@ -112,7 +112,7 @@ const Testimonials = ({ isDark }) => {
       company: 'RBC',
       companyLogo:
         'https://placehold.co/100x40/1a143c/ffffff?text=RBC&font=roboto',
-      avatar: 'https://randomuser.me/api/portraits/women/7.jpg',
+      avatar: 'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906691/RBC-LOGO_Sept30_2019-Regular_yychpo.png',
     },
     {
       name: 'Jean Claude Habimana',
@@ -122,17 +122,17 @@ const Testimonials = ({ isDark }) => {
       company: 'EDCL',
       companyLogo:
         'https://placehold.co/100x40/1a143c/ffffff?text=EDCL&font=roboto',
-      avatar: 'https://randomuser.me/api/portraits/men/8.jpg',
+      avatar: 'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906690/EDCL_hlnvci.jpg',
     },
     {
       name: 'Grace Mukamana',
-      role: 'Founder, HealthData Analytics Ltd',
+      role: 'Director, AESG Africa',
       quote:
         'We were impressed by HOUSE MAJOR’s professionalism and deep understanding of AI systems. They delivered an intuitive dashboard that’s now a core part of our workflow.',
       company: 'HealthData Analytics',
       companyLogo:
         'https://placehold.co/100x40/1a143c/ffffff?text=HealthData&font=roboto',
-      avatar: 'https://randomuser.me/api/portraits/women/9.jpg',
+      avatar: 'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906691/logo_africaesg_fbnstb.png',
     },
   ];
 
