@@ -15,12 +15,12 @@ const awardsData = [
 
 const clientLogos = [
   
-  '/path/to/client-logo-1.svg',
-  '/path/to/client-logo-2.svg',
-  '/path/to/client-logo-3.svg',
-  '/path/to/client-logo-4.svg',
-  '/path/to/client-logo-5.svg',
-  '/path/to/client-logo-6.svg',
+  'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906691/logo_278540091_nnt2sw.png',
+  'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906691/RBC-LOGO_Sept30_2019-Regular_yychpo.png',
+  'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906691/logo_africaesg_fbnstb.png',
+  'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906690/EDCL_hlnvci.jpg',
+  'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906690/logo_2024182096_vytnsg.png',
+  'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906690/International-Union-for-Conservation-of-Nature-IUCN-Rwanda-is-hiring-a-Program-Officer_zi05a4.png',
 ];
 
 const AboutPage = ({ isDark }) => {
