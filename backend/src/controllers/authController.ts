@@ -10,14 +10,13 @@ const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET || "secret123";
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com", 
+  port: 465,              
+  secure: true,
   auth: {
-    user: "b.cedrick100@gmail.com",
-    pass: "paoe lria ailk kerg",
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  }
 });
 
 @Route("auth")
@@ -95,7 +94,7 @@ export class AuthController extends Controller {
     });
 
     const mailOptions = {
-      from: `"House Major Website" <b.cedrick100@gmail.com>`,
+      from: `"House Major" <${process.env.SMTP_USER}>`,
       to: body.email,
       subject: "Password Reset Request",
       html: `
