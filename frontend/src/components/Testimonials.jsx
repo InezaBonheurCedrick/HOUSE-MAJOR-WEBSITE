@@ -18,7 +18,7 @@ const TestimonialCard = ({ testimonial, isDark }) => (
       <img
         src={testimonial.avatar}
         alt={testimonial.name}
-        className="w-12 h-12 rounded-full object-contain mr-3 border-2 border-indigo-400 transition-all duration-300 group-hover:border-indigo-500"
+        className="w-12 h-12 rounded-full object-contain mr-3 border-1 border-indigo-400 transition-all duration-300 group-hover:border-indigo-500"
       />
       <div>
         <h4
@@ -88,7 +88,7 @@ const Testimonials = ({ isDark }) => {
       name: 'Alice Niyonsenga',
       role: 'Program Manager, IUCN Rwanda',
       quote:
-        'HOUSE MAJOR’s geospatial data system helped us monitor environmental projects with real-time accuracy. Their technical team was incredibly responsive and professional throughout the deployment.',
+        'HOUSE MAJOR’s geospatial data system helped us monitor environmental projects with real-time accuracy. Their technical team was incredibly professional throughout the deployment.',
       company: 'IUCN Rwanda',
       companyLogo:
         'https://placehold.co/100x40/1a143c/ffffff?text=IUCN&font=roboto',
