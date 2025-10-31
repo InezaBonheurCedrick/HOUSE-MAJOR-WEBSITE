@@ -95,7 +95,7 @@ export class AuthController extends Controller {
     });
 
     const mailOptions = {
-      from: `"House Major" <b.cedrick100@gmail.com>`,
+      from: `"House Major Website" <b.cedrick100@gmail.com>`,
       to: body.email,
       subject: "Password Reset Request",
       html: `
