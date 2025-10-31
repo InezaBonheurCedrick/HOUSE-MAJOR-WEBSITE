@@ -10,8 +10,8 @@ const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET || "secret123";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com", 
-  port: 465,              
+  host: "smtp.gmail.com",  //newly added
+  port: 465,  //newly added            
   secure: true,
   auth: {
     user: process.env.SMTP_USER,
