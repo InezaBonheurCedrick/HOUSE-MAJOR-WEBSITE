@@ -102,7 +102,7 @@ const ServicesSection = ({ isDark }) => {
           <div className="text-center mt-12">
             <button
               onClick={() => setShowAll(!showAll)}
-              className={`px-6 py-3 rounded-lg font-semibold text-white bg-brand transition-all duration-300 hover:opacity-90 ${
+              className={`px-5 py-3 rounded-full font-semibold text-white bg-brand transition-all duration-300 hover:opacity-90 cursor-pointer ${
                 !isDark ? 'shadow-lg' : ''
               }`}
             >
