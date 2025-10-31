@@ -129,9 +129,9 @@ const Testimonials = ({ isDark }) => {
       role: 'Director, AESG Africa',
       quote:
         'We were impressed by HOUSE MAJOR’s professionalism and deep understanding of AI systems. They delivered an intuitive dashboard that’s now a core part of our workflow.',
-      company: 'HealthData Analytics',
+      company: 'AESG Africa',
       companyLogo:
-        'https://placehold.co/100x40/1a143c/ffffff?text=HealthData&font=roboto',
+        'https://placehold.co/100x40/1a143c/ffffff?text=AESG&font=roboto',
       avatar: 'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761906691/logo_africaesg_fbnstb.png',
     },
   ];
