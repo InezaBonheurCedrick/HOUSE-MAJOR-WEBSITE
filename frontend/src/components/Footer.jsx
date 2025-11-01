@@ -41,7 +41,7 @@ const Footer = ({ isDark }) => {
   ];
 
   const socialIcons = [
-    { icon: <TwitterIcon className="h-5 w-5" />, href: '#', label: 'Twitter' },
+    { icon: <TwitterIcon className="h-5 w-5" />, href: 'https://x.com/gasigwaissa?s=21', label: 'Twitter' },
     { icon: <FacebookIcon className="h-5 w-5" />, href: '#', label: 'Facebook' },
     { icon: <InstagramIcon className="h-5 w-5" />, href: '#', label: 'Instagram' },
     { icon: <LinkedinIcon className="h-5 w-5" />, href: '#', label: 'LinkedIn' },
