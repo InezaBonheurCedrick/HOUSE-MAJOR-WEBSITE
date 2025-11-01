@@ -26,6 +26,8 @@ const ProjectDetails = ({ isDark }) => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  // ... (useEffect for fetching project, nextImage, prevImage, openGallery, handleBack remain the same) ...
+
   useEffect(() => {
     const fetchProject = async () => {
       try {
@@ -83,56 +85,39 @@ const ProjectDetails = ({ isDark }) => {
     navigate(-1);
   };
 
+
   if (loading) {
-    return (
-      <div className={`min-h-screen flex items-center justify-center ${
-        isDark ? 'bg-[#0a0424] text-white' : 'bg-gray-50 text-gray-900'
-      }`}>
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
-          <p>Loading project details...</p>
-        </div>
-      </div>
-    );
+     return (
+       <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-[#0a0424] text-white' : 'bg-gray-50 text-gray-900'}`}>
+         <div className="text-center">
+           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+           <p>Loading project details...</p>
+         </div>
+       </div>
+     );
   }
 
   if (error || !project) {
-    return (
-      <div className={`min-h-screen flex items-center justify-center ${
-        isDark ? 'bg-[#0a0424] text-white' : 'bg-gray-50 text-gray-900'
-      }`}>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">
-            {error || 'Project Not Found'}
-          </h2>
-          <button
-            onClick={handleBack}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-lg"
-          >
-            Go Back to Portfolio
-          </button>
-        </div>
-      </div>
-    );
+     return (
+       <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-[#0a0424] text-white' : 'bg-gray-50 text-gray-900'}`}>
+         <div className="text-center">
+           <h2 className="text-2xl font-bold mb-4">{error || 'Project Not Found'}</h2>
+           <button onClick={handleBack} className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-lg">
+             Go Back to Portfolio
+           </button>
+         </div>
+       </div>
+     );
   }
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
       isDark ? 'bg-[#0a0424] text-white' : 'bg-gray-50 text-gray-900'
     }`}>
-      <div className={`border-b transition-colors duration-300 ${
-        isDark ? 'border-gray-800' : 'border-gray-200'
-      }`}>
+      {/* Back Button Bar */}
+      <div className={`border-b transition-colors duration-300 ${isDark ? 'border-gray-800' : 'border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
-          <button
-            onClick={handleBack}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 ${
-              isDark 
-                ? 'hover:bg-gray-800 text-gray-400 hover:text-white' 
-                : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'
-            }`}
-            aria-label="Go back"
-          >
+          <button onClick={handleBack} className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 ${isDark ? 'hover:bg-gray-800 text-gray-400 hover:text-white' : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'}`} aria-label="Go back">
             <ArrowLeftIcon className="h-5 w-5" />
             <span>Back to Portfolio</span>
           </button>
@@ -140,8 +125,10 @@ const ProjectDetails = ({ isDark }) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
+        {/* Project Header Info */}
         <div className="mb-12">
-          <div className="flex flex-wrap items-center gap-3 mb-4">
+          {/* ... (Category, Date, Title, Description - no changes needed here) ... */}
+           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors duration-300 ${
               isDark ? 'bg-indigo-600 text-white' : 'bg-indigo-100 text-indigo-800'
             }`}>
@@ -168,18 +155,21 @@ const ProjectDetails = ({ isDark }) => {
           </p>
         </div>
 
+        {/* --- IMAGE GALLERY --- */}
         {project.images && project.images.length > 0 && (
+          // --- 1. ADD max-w-* and mx-auto TO CONSTRAIN AND CENTER ---
           <div 
-            className="mb-12"
+            className="mb-12 max-w-4xl mx-auto" // Adjust max-w-4xl as needed (e.g., max-w-5xl)
             onMouseEnter={() => setIsGalleryHovered(true)}
             onMouseLeave={() => setIsGalleryHovered(false)}
           >
             
             <div className="relative mb-2 group rounded-lg overflow-hidden">
+               {/* --- 2. REPLACE FIXED HEIGHT WITH ASPECT RATIO --- */}
               <img
                 src={project.images[currentImageIndex]}
                 alt={`${project.title} gallery ${currentImageIndex + 1}`}
-                className={`w-full h-[400px] md:h-[500px] object-cover transition-all duration-300 cursor-pointer ${
+                className={`w-full aspect-video object-cover transition-all duration-300 cursor-pointer ${ // Changed h-[...] to aspect-video
                   isDark ? 'bg-gray-800' : 'bg-gray-200'
                 }`}
                 onClick={() => openGallery(currentImageIndex)}
@@ -190,57 +180,40 @@ const ProjectDetails = ({ isDark }) => {
                 aria-hidden="true"
               />
 
+              {/* Prev/Next Buttons (No changes needed) */}
               {project.images.length > 1 && (
-                <button
-                  onClick={prevImage}
-                  className="absolute top-1/2 left-3 md:left-4 -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-black/50 transition-all duration-300 opacity-0 group-hover:opacity-100"
-                  aria-label="Previous image"
-                >
+                <button onClick={prevImage} className="absolute top-1/2 left-3 md:left-4 -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-black/50 transition-all duration-300 opacity-0 group-hover:opacity-100" aria-label="Previous image">
                   <ChevronLeftIcon className="h-5 w-5 md:h-6 md:w-6" />
                 </button>
               )}
-              
               {project.images.length > 1 && (
-                <button
-                  onClick={nextImage}
-                  className="absolute top-1/2 right-3 md:right-4 -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-black/50 transition-all duration-300 opacity-0 group-hover:opacity-100"
-                  aria-label="Next image"
-                >
+                <button onClick={nextImage} className="absolute top-1/2 right-3 md:right-4 -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-black/50 transition-all duration-300 opacity-0 group-hover:opacity-100" aria-label="Next image">
                   <ChevronRightIcon className="h-5 w-5 md:h-6 md:w-6" />
                 </button>
               )}
             </div>
 
+            {/* Thumbnails (No changes needed, will wrap within the max-width) */}
             {project.images.length > 1 && (
-              <div className="flex overflow-x-auto space-x-2 p-2">
+              <div className="flex overflow-x-auto space-x-2 p-2 scrollbar-hide"> {/* Added scrollbar-hide */}
                 {project.images.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`flex-shrink-0 rounded-md overflow-hidden transition-all duration-300 ${
-                      index === currentImageIndex 
-                        ? 'ring-4 ring-indigo-500'
-                        : 'ring-2 ring-transparent hover:ring-2 hover:ring-indigo-300 opacity-70 hover:opacity-100' // Inactive state
-                    }`}
-                    aria-label={`View image ${index + 1}`}
-                  >
-                    <img
-                      src={image}
-                      alt={`Thumbnail ${index + 1}`}
-                      className="h-16 w-24 object-cover"
-                    />
+                  <button key={index} onClick={() => setCurrentImageIndex(index)} className={`flex-shrink-0 rounded-md overflow-hidden transition-all duration-300 ${ index === currentImageIndex ? 'ring-4 ring-indigo-500' : 'ring-2 ring-transparent hover:ring-2 hover:ring-indigo-300 opacity-70 hover:opacity-100' }`} aria-label={`View image ${index + 1}`}>
+                    <img src={image} alt={`Thumbnail ${index + 1}`} className="h-16 w-24 object-cover"/>
                   </button>
                 ))}
               </div>
             )}
           </div>
         )}
+        {/* --- END IMAGE GALLERY --- */}
 
 
+        {/* Project Details Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content Area (Overview, Features, Results) */}
           <div className="lg:col-span-2 space-y-12">
-            
-            <section>
+             {/* ... (Sections remain the same) ... */}
+              <section>
               <h2 className={`text-xl font-bold mb-4 transition-colors duration-300 ${
                 isDark ? 'text-white' : 'text-gray-900'
               }`}>
@@ -308,12 +281,12 @@ const ProjectDetails = ({ isDark }) => {
                 </div>
               </section>
             )}
-
           </div>
 
+          {/* Sidebar Area (Client, Details, Tags, Links) */}
           <div className="space-y-6">
-
-            {project.client && (
+            {/* ... (Sidebar sections remain the same) ... */}
+               {project.client && (
               <div className={`p-6 rounded-lg transition-colors duration-300 ${
                 isDark ? 'bg-[#1a143c]' : 'bg-white shadow-sm'
               }`}>
@@ -537,39 +510,41 @@ const ProjectDetails = ({ isDark }) => {
         </div>
       </div>
 
+      {/* Fullscreen Gallery Modal */}
       {isGalleryOpen && project.images && (
-        <div className="fixed inset-0 z-50 backdrop-blur-md bg-black/80 bg-opacity-95 flex items-center justify-center">
-          <button
-            onClick={() => setIsGalleryOpen(false)}
-            className="absolute top-4 right-4 p-1 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full transition-all duration-300 cursor-pointer"
-          >
-            <XMarkIcon className="h-6 w-6 text-white" />
+        <div className="fixed inset-0 z-[60] backdrop-blur-md bg-black/80 flex items-center justify-center p-4"> {/* Increased z-index */}
+          {/* Close Button */}
+          <button onClick={() => setIsGalleryOpen(false)} className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition text-white z-10" aria-label="Close gallery">
+            <XMarkIcon className="h-6 w-6" />
           </button>
           
-          <button
-            onClick={prevImage}
-            className="absolute left-4 p-1 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full transition-all duration-300 cursor-pointer"
-          >
-            <ChevronLeftIcon className="h-6 w-6 text-white" />
-          </button>
+          {/* Prev Button */}
+          {project.images.length > 1 && (
+            <button onClick={prevImage} className="absolute left-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition text-white" aria-label="Previous image">
+              <ChevronLeftIcon className="h-6 w-6" />
+            </button>
+          )}
 
-          <div className="max-w-6xl max-h-[80vh] px-16">
+          {/* Image Container */}
+          <div className="relative max-w-6xl w-full max-h-[90vh]">
             <img
               src={project.images[currentImageIndex]}
               alt={`Gallery ${currentImageIndex + 1}`}
-              className="max-w-full max-h-[80vh] object-contain"
+              className="max-w-full max-h-[90vh] object-contain mx-auto block" // Centered image
             />
-            <p className="text-white text-center mt-4 text-sm">
-              {currentImageIndex + 1} / {project.images.length}
-            </p>
+             {project.images.length > 1 && (
+                <p className="text-white/80 text-center mt-3 text-sm absolute bottom-[-30px] left-1/2 -translate-x-1/2 bg-black/30 px-2 py-0.5 rounded"> {/* Positioned counter below image */}
+                    {currentImageIndex + 1} / {project.images.length}
+                </p>
+             )}
           </div>
 
-          <button
-            onClick={nextImage}
-            className="absolute right-4 p-1 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full transition-all duration-300 cursor-pointer"
-          >
-            <ChevronRightIcon className="h-6 w-6 text-white" />
-          </button>
+          {/* Next Button */}
+           {project.images.length > 1 && (
+            <button onClick={nextImage} className="absolute right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition text-white" aria-label="Next image">
+              <ChevronRightIcon className="h-6 w-6" />
+            </button>
+           )}
         </div>
       )}
     </div>
