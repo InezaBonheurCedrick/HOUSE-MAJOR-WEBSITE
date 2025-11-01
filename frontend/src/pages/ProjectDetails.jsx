@@ -182,12 +182,12 @@ const ProjectDetails = ({ isDark }) => {
 
               {/* Prev/Next Buttons (No changes needed) */}
               {project.images.length > 1 && (
-                <button onClick={prevImage} className="absolute top-1/2 left-3 md:left-4 -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-black/50 transition-all duration-300 opacity-0 group-hover:opacity-100" aria-label="Previous image">
+                <button onClick={prevImage} className="absolute top-1/2 left-3 md:left-4 -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-black/50 transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer" aria-label="Previous image">
                   <ChevronLeftIcon className="h-5 w-5 md:h-6 md:w-6" />
                 </button>
               )}
               {project.images.length > 1 && (
-                <button onClick={nextImage} className="absolute top-1/2 right-3 md:right-4 -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-black/50 transition-all duration-300 opacity-0 group-hover:opacity-100" aria-label="Next image">
+                <button onClick={nextImage} className="absolute top-1/2 right-3 md:right-4 -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-black/50 transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer" aria-label="Next image">
                   <ChevronRightIcon className="h-5 w-5 md:h-6 md:w-6" />
                 </button>
               )}
@@ -514,13 +514,13 @@ const ProjectDetails = ({ isDark }) => {
       {isGalleryOpen && project.images && (
         <div className="fixed inset-0 z-[60] backdrop-blur-md bg-black/80 flex items-center justify-center p-4"> {/* Increased z-index */}
           {/* Close Button */}
-          <button onClick={() => setIsGalleryOpen(false)} className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition text-white z-10" aria-label="Close gallery">
+          <button onClick={() => setIsGalleryOpen(false)} className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition text-white z-10 cursor-pointer" aria-label="Close gallery">
             <XMarkIcon className="h-6 w-6" />
           </button>
           
           {/* Prev Button */}
           {project.images.length > 1 && (
-            <button onClick={prevImage} className="absolute left-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition text-white" aria-label="Previous image">
+            <button onClick={prevImage} className="absolute left-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition text-white cursor-pointer" aria-label="Previous image">
               <ChevronLeftIcon className="h-6 w-6" />
             </button>
           )}
