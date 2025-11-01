@@ -53,7 +53,7 @@ const Contact = ({ isDark }) => {
     {
       icon: <EnvelopeIcon className="h-5 w-5 " />,
       title: 'Email Us',
-      value: 'HouseMajor@gmail.com',
+      value: 'gasigwaissa123@gmail.com',
       description: 'Response in 2-4 hours',
     },
     {
