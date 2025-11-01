@@ -541,7 +541,7 @@ const ProjectDetails = ({ isDark }) => {
 
           {/* Next Button */}
            {project.images.length > 1 && (
-            <button onClick={nextImage} className="absolute right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition text-white" aria-label="Next image">
+            <button onClick={nextImage} className="absolute right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition text-white cursor-pointer" aria-label="Next image">
               <ChevronRightIcon className="h-6 w-6" />
             </button>
            )}
