@@ -59,7 +59,7 @@ const Contact = ({ isDark }) => {
     {
       icon: <PhoneIcon className="h-5 w-5 " />,
       title: 'Call Us',
-      value: '+250 794 507 245',
+      value: '+250 788 258 922',
       description: 'Available 9AM - 6PM',
     },
     {
