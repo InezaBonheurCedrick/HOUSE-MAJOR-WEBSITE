@@ -79,7 +79,6 @@ const Contact = ({ isDark }) => {
   const socialLinks = [
     { icon: <LinkedinIcon className="h-5 w-5" />, href: 'http://www.linkedin.com/in/gasigwa-issa-835854152', label: 'LinkedIn' },
     { icon: <TwitterIcon className="h-5 w-5" />, href: 'https://x.com/gasigwaissa?s=21', label: 'Twitter' },
-    { icon: <GithubIcon className="h-5 w-5" />, href: '#', label: 'GitHub' },
   ];
 
   return (
