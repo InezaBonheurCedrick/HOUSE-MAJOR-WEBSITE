@@ -10,7 +10,7 @@ const Footer = ({ isDark }) => {
     {
       title: 'Our Services',
       links: [
-        'Software Development',
+        'System Development',
         'AI Model Development',
         'Cybersecurity & Data Protection',
         'Geospatial Analysis',
