@@ -230,7 +230,7 @@ const Contact = ({ isDark }) => {
             {contactDetails.map((item) => (
               <div
                 key={item.title}
-                className={`flex items-start gap-4 p-4 rounded-xl border transition-all duration-300 hover:-translate-y-1 ${
+                className={`flex items-start gap-3 p-4 rounded-xl border transition-all duration-300 hover:-translate-y-1 ${
                   isDark ? 'bg-[#1a143c] border-transparent text-white' : 'bg-white border-gray-200 shadow-sm text-brand'
                 }`}
               >
