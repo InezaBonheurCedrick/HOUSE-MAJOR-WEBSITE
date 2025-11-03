@@ -93,7 +93,7 @@ const Header = ({ isDark, toggleTheme }) => {
     else {
       navigate(href);
       setIsSidebarOpen(false);
-      setActiveSection('');//this is bad
+      setActiveSection('');
     }
   };
 
