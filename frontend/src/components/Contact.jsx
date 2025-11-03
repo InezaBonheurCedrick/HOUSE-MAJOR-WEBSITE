@@ -200,7 +200,7 @@ const Contact = ({ isDark }) => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 btn-brand hover:bg-brand/90 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-2 btn-brand hover:bg-brand/90 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'} <PaperAirplaneIcon className="h-5 w-5" />
                 </button>
