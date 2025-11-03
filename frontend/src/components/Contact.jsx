@@ -223,7 +223,7 @@ const Contact = ({ isDark }) => {
                 }`}
               >
                 Reach out anytime for project inquiries, partnership opportunities,
-              or general questions. We typically respond within 24 hours.
+              or general questions. We typically respond within 3 hours.
               </p>
             </div>
 
