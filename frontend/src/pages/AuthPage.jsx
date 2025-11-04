@@ -3,10 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import authService from '../services/authService';
 
 const AuthPage = ({ isDark }) => {
-  const [authMode, setAuthMode] = useState('login'); // 'login', 'signup', 'forgotPassword', 'resetPassword'
+  const [authMode, setAuthMode] = useState('login');
   
   const isLoginMode = authMode === 'login';
-  const isSignupMode = authMode === 'signup';
   const isForgotPasswordMode = authMode === 'forgotPassword';
   const isResetPasswordMode = authMode === 'resetPassword';
   
@@ -20,9 +19,6 @@ const AuthPage = ({ isDark }) => {
     email: '',
     password: '',
     confirmPassword: '',
-    fullName: '',
-    company: '',
-    phone: '',
     token: '',
   });
 
@@ -36,15 +32,11 @@ const AuthPage = ({ isDark }) => {
     if (success) setSuccess('');
   };
   
-  // --- Reset form fields helper ---
   const resetFormFields = (keepEmail = false) => {
      setFormData({
       email: keepEmail ? formData.email : '',
       password: '',
       confirmPassword: '',
-      fullName: '',
-      company: '',
-      phone: '',
       token: '',
     });
   }
@@ -57,7 +49,6 @@ const AuthPage = ({ isDark }) => {
 
     try {
       if (isLoginMode) {
-        // Handle login
         const result = await authService.login({
           email: formData.email,
           password: formData.password
@@ -66,22 +57,8 @@ const AuthPage = ({ isDark }) => {
           setSuccess('Login successful! Redirecting...');
           setTimeout(() => navigate('/dashboard'), 1500);
         }
-      } else if (isSignupMode) {
-        // Handle signup
-        if (formData.password !== formData.confirmPassword) {
-          setError('Passwords do not match!');
-          setIsLoading(false);
-          return;
-        }
-        const result = await authService.register(formData);
-        if (result.status === 'success') {
-          setSuccess('Registration successful! Please login.');
-          setTimeout(() => {
-            setAuthMode('login'); // Switch to login
-            resetFormFields(true); // Keep email
-          }, 2000);
-        }
-      } else if (isForgotPasswordMode) {
+      } 
+      else if (isForgotPasswordMode) {
           const result = await authService.forgotPassword({ email: formData.email });
           if (result.status === 'success') {
             setSuccess('Reset token sent to your email. Check your inbox (and spam folder).');
@@ -101,7 +78,7 @@ const AuthPage = ({ isDark }) => {
              setSuccess('Password reset successfully! You can now login.');
              setTimeout(() => {
                setAuthMode('login');
-               resetFormFields(true); // Keep email
+               resetFormFields(true);
              }, 2000);
           }
       }
@@ -113,14 +90,7 @@ const AuthPage = ({ isDark }) => {
   };
 
 
-  const toggleLoginSignup = () => {
-    setAuthMode(isLoginMode ? 'signup' : 'login');
-    resetFormFields();
-    setError('');
-    setSuccess('');
-  };
   
-  // ---  Function to switch to forgot password mode ---
   const switchToForgotPassword = () => {
     setAuthMode('forgotPassword');
     resetFormFields();
@@ -128,7 +98,6 @@ const AuthPage = ({ isDark }) => {
     setSuccess('');
   };
   
-  // --- Added: Function to switch back to login ---
   const switchToLogin = () => {
      setAuthMode('login');
      resetFormFields();
@@ -137,17 +106,15 @@ const AuthPage = ({ isDark }) => {
   };
   
   const getHeaderContent = () => {
-      if (isLoginMode) return { title: 'Welcome Back', description: 'Sign in to your House Major account' };
-      if (isSignupMode) return { title: 'Create Account', description: 'Join House Major and start your journey' };
-      if (isForgotPasswordMode) return { title: 'Forgot Password', description: 'Enter your email to receive a reset token' };
-      if (isResetPasswordMode) return { title: 'Reset Password', description: 'Enter your email, token, and new password' };
-      return { title: '', description: '' };
+       if (isLoginMode) return { title: 'Welcome Back', description: 'Sign in to your House Major account' };
+       if (isForgotPasswordMode) return { title: 'Forgot Password', description: 'Enter your email to receive a reset token' };
+       if (isResetPasswordMode) return { title: 'Reset Password', description: 'Enter your email, token, and new password' };
+       return { title: '', description: '' };
   };
   const { title, description } = getHeaderContent();
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-[#0a0424]' : 'bg-gray-50'}`}>
-
 
       <div className="flex items-center justify-center px-4 py-30">
         <div className={`w-full max-w-md rounded-lg p-8 transition-colors duration-300 ${
@@ -183,53 +150,41 @@ const AuthPage = ({ isDark }) => {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             
-            {/* Fields for Signup Mode */}
-            {isSignupMode && (
-              <>
-                {/* Full Name */}
-                <div>
-                  <label htmlFor="fullName" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Full Name</label>
-                  <div className="relative">
-                    <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleInputChange} required className={`w-full pl-5 pr-3 py-3 rounded-lg border transition-colors duration-300 ${isDark ? 'bg-gray-800 border-gray-700 text-white ...' : 'bg-white border-gray-300 text-gray-900 ...'} focus:outline-none`} placeholder="John Doe"/>
-                  </div>
-                </div>
-              </>
-            )}
 
-            {(isLoginMode || isSignupMode || isForgotPasswordMode || isResetPasswordMode) && (
+            {(isLoginMode || isForgotPasswordMode || isResetPasswordMode) && (
               <div>
-                <label htmlFor="email" className={`block text-sm font-medium mb-2 ... ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Email Address</label>
+                <label htmlFor="email" className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Email Address</label>
                 <div className="relative">
-                  <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className={`w-full pl-5 pr-3 py-3 rounded-lg border ... ${isDark ? 'bg-gray-800 border-gray-700 text-white' : 'bg-white border-gray-300'} focus:outline-none`} placeholder="you@example.com"/>
+                  <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className={`w-full pl-5 pr-3 py-3 rounded-lg border ${isDark ? 'bg-gray-800 border-gray-700 text-white' : 'bg-white border-gray-300'} focus:outline-none`} placeholder="you@example.com"/>
                 </div>
               </div>
             )}
             
-             {isResetPasswordMode && (
-                <div>
-                  <label htmlFor="token" className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Reset Token</label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      id="token"
-                      name="token"
-                      value={formData.token}
-                      onChange={handleInputChange}
-                      required
-                      className={`w-full px-3 py-3 rounded-lg border transition-colors duration-300 ${isDark ? 'bg-gray-800 border-gray-700 text-white' : 'bg-white border-gray-300'} focus:outline-none`}
-                      placeholder="Enter token from email"
-                    />
-                  </div>
-                </div>
-             )}
-
-            {(isLoginMode || isSignupMode || isResetPasswordMode) && (
+            {isResetPasswordMode && (
               <div>
-                <label htmlFor="password" className={`block text-sm font-medium mb-2 ... ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                <label htmlFor="token" className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Reset Token</label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="token"
+                    name="token"
+                    value={formData.token}
+                    onChange={handleInputChange}
+                    required
+                    className={`w-full px-3 py-3 rounded-lg border transition-colors duration-300 ${isDark ? 'bg-gray-800 border-gray-700 text-white' : 'bg-white border-gray-300'} focus:outline-none`}
+                    placeholder="Enter token from email"
+                  />
+                </div>
+              </div>
+            )}
+
+            {(isLoginMode || isResetPasswordMode) && (
+              <div>
+                <label htmlFor="password" className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                   {isResetPasswordMode ? 'New Password' : 'Password'}
                 </label>
                 <div className="relative">
-                  <input type={showPassword ? "text" : "password"} id="password" name="password" value={formData.password} onChange={handleInputChange} required className={`w-full pl-5 pr-10 py-3 rounded-lg border ... ${isDark ? 'bg-gray-800 border-gray-700 text-white' : 'bg-white border-gray-300'} focus:outline-none`} placeholder={isResetPasswordMode ? "Enter new password" : "Enter your password"}/>
+                  <input type={showPassword ? "text" : "password"} id="password" name="password" value={formData.password} onChange={handleInputChange} required className={`w-full pl-5 pr-10 py-3 rounded-lg border ${isDark ? 'bg-gray-800 border-gray-700 text-white' : 'bg-white border-gray-300'} focus:outline-none`} placeholder={isResetPasswordMode ? "Enter new password" : "Enter your password"}/>
                   <button
                     type="button"
                     aria-label={showPassword ? "Hide password" : "Show password"}
@@ -252,18 +207,18 @@ const AuthPage = ({ isDark }) => {
               </div>
             )}
 
-            {(isSignupMode || isResetPasswordMode) && (
+            {isResetPasswordMode && (
               <div>
-                <label htmlFor="confirmPassword" className={`block text-sm font-medium mb-2 ... ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  {isResetPasswordMode ? 'Confirm New Password' : 'Confirm Password'}
+                <label htmlFor="confirmPassword" className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  Confirm New Password
                 </label>
                 <div className="relative">
-                  <input type={showPassword ? "text" : "password"} id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleInputChange} required className={`w-full pl-5 pr-3 py-3 rounded-lg border ... ${isDark ? 'bg-gray-800 border-gray-700 text-white' : 'bg-white border-gray-300'} focus:outline-none`} placeholder={isResetPasswordMode ? "Confirm new password" : "Confirm your password"}/>
+                  <input type={showPassword ? "text" : "password"} id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleInputChange} required className={`w-full pl-5 pr-3 py-3 rounded-lg border ${isDark ? 'bg-gray-800 border-gray-700 text-white' : 'bg-white border-gray-300'} focus:outline-none`} placeholder="Confirm new password"/>
                 </div>
               </div>
             )}
             
-             {isLoginMode && (
+            {isLoginMode && (
                  <div className="text-right">
                     <button
                         type="button"
@@ -274,7 +229,7 @@ const AuthPage = ({ isDark }) => {
                         Forgot Password?
                     </button>
                  </div>
-             )}
+            )}
 
             <button
               type="submit"
@@ -286,39 +241,33 @@ const AuthPage = ({ isDark }) => {
               {isLoading ? (
                 <>
                   <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                  {isLoginMode ? 'Signing In...' : isSignupMode ? 'Creating Account...' : isForgotPasswordMode ? 'Sending Token...' : 'Resetting Password...'}
+                  {isLoginMode ? 'Signing In...' : isForgotPasswordMode ? 'Sending Token...' : 'Resetting Password...'}
                 </>
               ) : (
-                isLoginMode ? 'Sign In' : isSignupMode ? 'Create Account' : isForgotPasswordMode ? 'Send Reset Token' : 'Reset Password'
+                isLoginMode ? 'Sign In' : isForgotPasswordMode ? 'Send Reset Token' : 'Reset Password'
               )}
             </button>
           </form>
 
           <div className="text-center mt-6">
-            {(isLoginMode || isSignupMode) && (
-                <p className={`text-sm transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                  {isLoginMode ? "Don't have an account? " : "Already have an account? "}
-                  <button type="button" onClick={toggleLoginSignup} disabled={isLoading} className={`font-semibold cursor-pointer ${isDark ? 'text-indigo-400 ...' : 'text-indigo-600 ...'} ${isLoading ? 'opacity-50 ...' : ''}`}>
-                    {isLoginMode ? 'Sign up' : 'Sign in'}
-                  </button>
-                </p>
-            )}
+            
             {(isForgotPasswordMode || isResetPasswordMode) && (
                  <p className={`text-sm transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                    Remember your password?{' '}
-                   <button type="button" onClick={switchToLogin} disabled={isLoading} className={`font-semibold ... ${isDark ? 'text-indigo-400 ...' : 'text-indigo-600 ...'} ${isLoading ? 'opacity-50 ...' : ''}`}>
-                      Sign in
+                   <button type="button" onClick={switchToLogin} disabled={isLoading} className={`font-semibold ${isDark ? 'text-indigo-400 hover:text-indigo-300' : 'text-indigo-600 hover:text-indigo-500'} ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}>
+                     Sign in
                    </button>
                  </p>
             )}
-             {isForgotPasswordMode && success && (
+            
+            {isForgotPasswordMode && success && (
                  <p className={`text-sm mt-2 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                    Received your token?{' '}
-                   <button type="button" onClick={() => setAuthMode('resetPassword')} disabled={isLoading} className={`font-semibold ... ${isDark ? 'text-indigo-400 ...' : 'text-indigo-600 ...'} ${isLoading ? 'opacity-50 ...' : ''}`}>
-                      Reset Password Now
+                   <button type="button" onClick={() => setAuthMode('resetPassword')} disabled={isLoading} className={`font-semibold ${isDark ? 'text-indigo-400 hover:text-indigo-300' : 'text-indigo-600 hover:text-indigo-500'} ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}>
+                     Reset Password Now
                    </button>
                  </p>
-             )}
+            )}
           </div>
         </div>
       </div>
