@@ -77,7 +77,7 @@ const Footer = ({ isDark }) => {
               <strong className={isDark ? 'text-white' : 'text-gray-900'}>
                 Phone:
               </strong>{' '}
-              +250 794 507 245
+              +250788258922
             </p>
             <p
               className={`text-sm mb-6 transition-colors duration-300 ${
@@ -87,7 +87,7 @@ const Footer = ({ isDark }) => {
               <strong className={isDark ? 'text-white' : 'text-gray-900'}>
                 Email:
               </strong>{' '}
-              contact@housemajor.com
+              housemajorrwanda@gmail.com
             </p>
             <div className="flex gap-3">
               {socialIcons.map((social) => (
