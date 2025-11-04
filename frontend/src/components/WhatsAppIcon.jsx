@@ -4,7 +4,7 @@ const WhatsAppSvgIcon = () => (
   <img 
     src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.14.0/whatsapp.svg"
     alt="WhatsApp"
-    className="w-6 h-6 text-white"
+    className="w-6 h-6 brightness-0 invert"
   />
 );
 
