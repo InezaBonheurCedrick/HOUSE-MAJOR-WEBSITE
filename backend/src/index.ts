@@ -21,7 +21,8 @@ const prisma = new PrismaClient();
 const allowedOrigins = [
   "http://localhost:5173", 
   "https://house-major-website.vercel.app",
-  "https://housemajortech.onrender.com"
+  "https://housemajortech.onrender.com",
+  "https://housemajortech.com",
 ];
 
 // Define the CORS options
