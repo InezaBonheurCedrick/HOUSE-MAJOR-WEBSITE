@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://house-major-website.onrender.com';
+const API_BASE_URL = 'https://house-major-website-qgs3.onrender.com';
 
 class ContactService {
   async submitContact(contactData) {

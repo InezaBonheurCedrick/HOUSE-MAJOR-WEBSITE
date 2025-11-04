@@ -134,7 +134,7 @@ const Portfolio = ({ isDark }) => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("https://house-major-website.onrender.com/projects");
+        const res = await axios.get("https://house-major-website-qgs3.onrender.com/projects");
         setProjects(res.data);
       } catch (err) {
         console.error(err);

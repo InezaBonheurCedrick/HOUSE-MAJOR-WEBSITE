@@ -28,7 +28,7 @@ const ServicesSection = ({ isDark }) => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch('https://house-major-website.onrender.com/services/frontend/all');
+        const response = await fetch('https://house-major-website-qgs3.onrender.com/services/frontend/all');
         if (!response.ok) {
           throw new Error('Failed to fetch services');
         }

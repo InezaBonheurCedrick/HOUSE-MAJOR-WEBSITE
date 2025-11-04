@@ -32,7 +32,7 @@ const ProjectDetails = ({ isDark }) => {
     const fetchProject = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`https://house-major-website.onrender.com/projects/${id}`);
+        const res = await axios.get(`https://house-major-website-qgs3.onrender.com/projects/${id}`);
         setProject(res.data);
       } catch (err) {
         console.error('Error fetching project:', err);

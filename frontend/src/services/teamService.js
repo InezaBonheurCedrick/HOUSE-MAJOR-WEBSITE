@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://house-major-website.onrender.com/team"; // adjust if deployed
+const API_URL = "https://house-major-website-qgs3.onrender.com/team"; // adjust if deployed
 
 const teamService = {
   // Fetch all team members

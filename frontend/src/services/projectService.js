@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://house-major-website.onrender.com';
+const API_BASE_URL = 'https://house-major-website-qgs3.onrender.com';
 
 const projectService = {
   // Get all projects (public - used by portfolio.jsx)

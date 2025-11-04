@@ -102,7 +102,7 @@ const Team = ({ isDark }) => {
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        const res = await axios.get("https://house-major-website.onrender.com/team");
+        const res = await axios.get("https://house-major-website-qgs3.onrender.com/team");
         setTeamMembers(res.data);
       } catch (err) {
         console.error("Error fetching team:", err);
