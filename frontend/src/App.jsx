@@ -18,6 +18,7 @@ import CareerPage from './pages/CareerPage';
 import InvestmentPage from './pages/InvestmentPage';
 import AuthPage from './pages/AuthPage';
 import Dashboard from './pages/Dashboard';
+import WhatsAppIcon from './components/WhatsAppIcon';
 
 const HashHandler = () => {
   const location = useLocation();
@@ -65,6 +66,7 @@ function App() {
               <CareerOpportunities isDark={isDark} />
               <Contact isDark={isDark} />
               <Footer isDark={isDark} />
+              <WhatsAppIcon />
             </>
           } />
           <Route path="/project/:id" element={
