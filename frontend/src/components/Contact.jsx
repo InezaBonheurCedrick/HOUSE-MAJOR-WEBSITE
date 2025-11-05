@@ -299,6 +299,8 @@ const Contact = ({ isDark }) => {
                   <a
                     key={link.label}
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={link.label}
                     className={`p-2 rounded-full transition-all duration-300 ${
                       isDark

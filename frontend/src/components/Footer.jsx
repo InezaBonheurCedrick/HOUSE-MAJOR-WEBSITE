@@ -1,41 +1,53 @@
 import React from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { TwitterIcon, FacebookIcon, InstagramIcon, LinkedinIcon } from './icons'; 
 
 const Footer = ({ isDark }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleAnchorClick = (anchor) => {
+    if (location.pathname !== '/') {
+      navigate(`/#${anchor}`);
+    } else {
+      const element = document.getElementById(anchor);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      window.history.pushState(null, '', `/#${anchor}`);
+    }
+  };
+
   const linkSections = [
     {
       title: 'Useful Links',
-      links: ['Home', 'About Us', 'Services', 'Projects', 'Contact Us'],
+      links: [
+        { name: 'Home', anchor: 'hero' },
+        { name: 'About Us', anchor: 'about' },
+        { name: 'Services', anchor: 'services' },
+        { name: 'Projects', anchor: 'portfolio' },
+        { name: 'Contact Us', anchor: 'contact' },
+      ],
     },
     {
       title: 'Our Services',
       links: [
-        'Software Development',
-        'AI Model Development',
-        'Cybersecurity & Data Protection',
-        'Geospatial Analysis',
-        'Tech Consultancy',
-        'Cloud & DevOps',
+        { name: 'Software Development', anchor: 'services' },
+        { name: 'AI Model Development', anchor: 'services' },
+        { name: 'Cybersecurity & Data Protection', anchor: 'services' },
+        { name: 'Geospatial Analysis', anchor: 'services' },
+        { name: 'Tech Consultancy', anchor: 'services' },
+        { name: 'Cloud & DevOps', anchor: 'services' },
       ],
     },
     {
       title: 'Company',
       links: [
-        'Our Team',
-        'Careers',
-        'News & Updates',
-        'Client Testimonials',
-        'Partners',
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        'Help Center',
-        'FAQs',
-        'Terms of Service',
-        'Privacy Policy',
-        'Cookies Policy',
+        { name: 'Our Team', anchor: 'team' },
+        { name: 'Careers', path: '/career' },
+        { name: 'Client Testimonials', anchor: 'testimonials' },
+        { name: 'Investment', path: '/investment' },
+        { name: 'Partners', path: '/about' },
       ],
     },
   ];
@@ -52,7 +64,7 @@ const Footer = ({ isDark }) => {
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <h3
               className={`text-2xl font-bold mb-4 transition-colors duration-300 ${
@@ -95,6 +107,8 @@ const Footer = ({ isDark }) => {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`flex items-center justify-center h-10 w-10 rounded-full transition-all duration-300 ${
                     isDark
                       ? 'bg-[#1a143c] hover:bg-indigo-600 text-gray-400 hover:text-white shadow-lg'
@@ -118,17 +132,30 @@ const Footer = ({ isDark }) => {
               </h4>
               <ul className="space-y-2">
                 {section.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className={`text-sm transition-colors duration-300 ${
-                        isDark
-                          ? 'text-gray-400 hover:text-indigo-400'
-                          : 'text-gray-600 hover:text-indigo-600'
-                      }`}
-                    >
-                      {link}
-                    </a>
+                  <li key={link.name}>
+                    {link.anchor ? (
+                      <button
+                        onClick={() => handleAnchorClick(link.anchor)}
+                        className={`text-sm text-left transition-colors duration-300 ${
+                          isDark
+                            ? 'text-gray-400 hover:text-indigo-400'
+                            : 'text-gray-600 hover:text-indigo-600'
+                        }`}
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link
+                        to={link.path || '/'}
+                        className={`text-sm transition-colors duration-300 ${
+                          isDark
+                            ? 'text-gray-400 hover:text-indigo-400'
+                            : 'text-gray-600 hover:text-indigo-600'
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -161,6 +188,8 @@ const Footer = ({ isDark }) => {
               Developed by{' '}
               <a
                 href="https://inezabonheurcedrick-web-neon.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`transition-colors duration-300 ${
                   isDark
                     ? 'text-indigo-400 hover:text-indigo-300'

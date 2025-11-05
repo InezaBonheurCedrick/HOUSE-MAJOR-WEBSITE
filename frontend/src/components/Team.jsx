@@ -116,6 +116,7 @@ const Team = ({ isDark }) => {
 
   return (
     <section
+      id="team"
       className={`py-16 px-6 transition-colors duration-300 ${
         isDark ? "bg-[#0a0424]" : "bg-gray-50"
       }`}
