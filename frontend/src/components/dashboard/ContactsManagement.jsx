@@ -50,7 +50,6 @@ const ContactsManagement = ({ isDark }) => {
       setLoading(true);
 
       const token = localStorage.getItem('authToken');
-      console.log('ContactsManagement - Token from localStorage:', token ? `Found (${token.length} chars)` : 'Not found');
 
       if (!token) {
         setError('Authentication required. Please log in to view contacts.');

@@ -24,9 +24,7 @@ class ContactService {
   }
 
   async getAllContacts(token) {
-    try {
-      console.log(' Contact Service - Token:', token ? `Bearer ${token.substring(0, 20)}...` : 'No token');
-      
+    try {      
       const response = await fetch(`${API_BASE_URL}/contacts`, {
         method: 'GET',
         headers: {
@@ -35,16 +33,13 @@ class ContactService {
         },
       });
 
-      console.log(' Contact Service - Response status:', response.status);
       
       if (!response.ok) {
         const errorData = await response.json();
-        console.error(' Contact Service - Backend error:', errorData);
         throw new Error(errorData.message || `Failed to fetch contacts: ${response.status}`);
       }
 
       const data = await response.json();
-      console.log(' Contact Service - Contacts fetched:', data.length, 'contacts');
       return data;
     } catch (error) {
       console.error(' Contact Service - Error:', error);
