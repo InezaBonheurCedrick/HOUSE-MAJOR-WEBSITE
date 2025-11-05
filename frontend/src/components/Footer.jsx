@@ -2,6 +2,10 @@ import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { TwitterIcon, FacebookIcon, InstagramIcon, LinkedinIcon } from './icons'; 
 
+const whiteLogoUrl = 'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761141673/upscalemedia-transformed_2_y4wfes.png';
+const darkLogoUrl = 'https://res.cloudinary.com/dc6iwekzx/image/upload/v1761141866/upscalemedia-transformed-removebg-preview_ikdkye.png';
+
+
 const Footer = ({ isDark }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -66,13 +70,15 @@ const Footer = ({ isDark }) => {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <h3
-              className={`text-2xl font-bold mb-4 transition-colors duration-300 ${
-                isDark ? 'text-white' : 'text-gray-900'
-              }`}
-            >
-              House Major
-            </h3>
+            
+            <Link to="#hero" className="block mb-4">
+              <img
+                src={isDark ? whiteLogoUrl : darkLogoUrl}
+                alt="House Major Logo"
+                className="h-36 w-auto -my-[3.25rem] transition-transform duration-300 hover:scale-105"
+              />
+            </Link>
+
             <p
               className={`text-sm mb-4 transition-colors duration-300 ${
                 isDark ? 'text-gray-400' : 'text-gray-600'
